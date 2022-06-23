@@ -2,11 +2,13 @@
 let computerSelection = computerPlay();
 let playerSelection = '';
 
+//function that determines computer option
 function computerPlay() {
   const rockPaperScissors = ['rock', 'paper', 'scissors']; 
   return rockPaperScissors[Math.floor(Math.random() * rockPaperScissors.length)]; 
 }
 
+//function that plays a round of RPS
 function playRound() { 
   //losing scenarios
   if (playerSelection === 'rock' && computerSelection === 'paper') {
@@ -41,6 +43,7 @@ function playRound() {
   } 
 }
 
+//function that plays a five round game of RPS
 function game() {
   //variables  
   let compScore = ''; 
