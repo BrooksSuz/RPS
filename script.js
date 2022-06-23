@@ -1,48 +1,34 @@
 //variables
-const playerSelection = prompt("Rock, Paper, or Scissors?"); 
-const computerSelection = computerPlay();
+const playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase(); 
+const computerSelection = computerPlay().toLowerCase();
 
 function computerPlay() {
-  let rockPaperScissors = ['rock', 'paper', 'scissors']; 
+  const rockPaperScissors = ['rock', 'paper', 'scissors']; 
   return rockPaperScissors[Math.floor(Math.random() * rockPaperScissors.length)]; 
 }; 
 
 function playRound() {
   //losing scenarios
-  if (playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'paper') {
-    return 'You lose! Paper beats Rock!'; 
-  }
-  else if (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'scissors') {
-    return 'You lose! Scissors beat Paper!'; 
-  }
-  else if (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'rock') {
-    return 'You lose! Rock beats scissors!'; 
-  }
+  playerSelection === 'rock' && computerSelection === 'paper' ? 'You lose! Paper beats Rock!' 
+  : playerSelection === 'paper' && computerSelection === 'scissors' ? 'You lose! Scissors beat Paper!' 
+  : playerSelection === 'scissors' && computerSelection === 'rock' ? 'You lose! Rock beats scissors!' 
 
   //winning scenarios
-  else if (playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'scissors') {
-    return 'You win! Rock beats Scissors!'; 
-  }
-  else if (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock') {
-    return 'You win! Paper beats Rock!'; 
-  }
-  else if (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'paper') {
-    return 'You win! Scissors beat Paper!'; 
-  }
+  : playerSelection === 'rock' && computerSelection === 'scissors' ? 'You win! Rock beats Scissors!' 
+  : playerSelection === 'paper' && computerSelection === 'rock' ? 'You win! Paper beats Rock!' 
+  : playerSelection === 'scissors' && computerSelection === 'paper' ? 'You win! Scissors beat Paper!'
 
   //error message on incorrect input
-  else if (playerSelection.toLowerCase() !== 'rock' || 'paper' || 'scissors') {
-    return 'Incorrect input. Type \'Rock\', \'Paper\', or \'Scissors\''; 
-  }
+  : playerSelection !== 'rock' || 'paper' || 'scissors' ? 'Incorrect input. Type \'Rock\', \'Paper\', or \'Scissors\'.' 
 
   //tieing scenario
-  else {
-    return `It's a tie!`; 
-  }
+  : `It's a tie!`; 
 }
 
 const game = () => {
-  playRound(playerSelection, computerSelection); 
+  for (let i = 0; i < 5; i++) {
+    return playRound(playerSelection, computerSelection); 
+  }
 }
 
 console.log(game());
