@@ -1,3 +1,5 @@
+//'console.log(game());' for RPS gameplay
+
 //variables
 let computerSelection = computerPlay();
 let playerSelection = '';
@@ -13,27 +15,23 @@ function playRound() {
   //losing scenarios
   if (playerSelection === 'rock' && computerSelection === 'paper') {
     return 'You lose! Paper beats Rock!'; 
-  } 
-  else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+  } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
     return 'You lose! Scissors beat Paper!'; 
-  } 
-  else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+  } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
     return 'You lose! Rock beats scissors!'; 
   } 
 
   //winning scenarios
-  else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+    else if (playerSelection === 'rock' && computerSelection === 'scissors') {
     return 'You win! Rock beats Scissors!'; 
-  } 
-  else if (playerSelection === 'paper' && computerSelection === 'rock') {
+  } else if (playerSelection === 'paper' && computerSelection === 'rock') {
     return 'You win! Paper beats Rock!'; 
-  } 
-  else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+  } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
     return 'You win! Scissors beat Paper!'; 
   }
   
   //tieing scenario
-  else if (playerSelection === computerSelection) {
+    else if (playerSelection === computerSelection) {
     return `It's a tie!`; 
   } 
 
@@ -64,8 +62,7 @@ function game() {
     //update our score
     if (playRound().includes('win')) {
       playerScore += 'I'; 
-    } 
-    else if (playRound().includes('lose')) {
+    } else if (playRound().includes('lose')) {
       compScore += 'I'; 
     }
 
@@ -83,11 +80,9 @@ function game() {
   //pronounce winner of five rounds 
   if (playerScore.length > compScore.length) {
     return 'You won the game!'; 
-  }
-  else if (playerScore.length < compScore.length) {
+  } else if (playerScore.length < compScore.length) {
     return 'You lost the game!'; 
-  } 
-  else {
+  } else {
     return 'It\'s a tie!'; 
   }
 }
