@@ -44,9 +44,13 @@ function game() {
     //play a round
     console.log(playRound(playerSelection, computerSelection)); 
 
-    //log our score
+    //update our score
     if (playRound().includes('lose')) {
       compScore.concat('I'); 
+    } else if (playRound().includes('win')) {
+      playerScore.concat('I'); 
+    } else {
+      i -= 1; 
     }
   }
 }
