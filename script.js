@@ -1,9 +1,14 @@
+//variables
+let computerSelection = computerPlay();
+let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase().replace(/\s/g, '');
+
 function computerPlay() {
   const rockPaperScissors = ['rock', 'paper', 'scissors']; 
   return rockPaperScissors[Math.floor(Math.random() * rockPaperScissors.length)]; 
 }
 
 function playRound() {
+
   //losing scenarios
   if (playerSelection === 'rock' && computerSelection === 'paper') {
     return 'You lose! Paper beats Rock!'; 
@@ -35,9 +40,7 @@ function playRound() {
 
 function game() {
   for (let i = 0; i < 5; i++) {
-    //variables 
-    let computerSelection = computerPlay();
-    let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase().replace(/\s/g, ''); 
+    //variables  
     const compScore = ''; 
     const playerScore = ''; 
 
@@ -52,5 +55,15 @@ function game() {
     } else {
       i -= 1; 
     }
+
+    //display score
+    console.log(`
+    Player Score: ${playerScore} 
+    Computer Score: ${compScore}
+    `); 
+
+    //reset variables for new game 
+    computerSelection; 
+    playerSelection; 
   }
 }
