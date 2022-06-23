@@ -11,23 +11,27 @@ function playRound() {
   //losing scenarios
   if (playerSelection === 'rock' && computerSelection === 'paper') {
     return 'You lose! Paper beats Rock!'; 
-  } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+  } 
+  else if (playerSelection === 'paper' && computerSelection === 'scissors') {
     return 'You lose! Scissors beat Paper!'; 
-  } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+  } 
+  else if (playerSelection === 'scissors' && computerSelection === 'rock') {
     return 'You lose! Rock beats scissors!'; 
   } 
 
-    //winning scenarios
-    else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+  //winning scenarios
+  else if (playerSelection === 'rock' && computerSelection === 'scissors') {
     return 'You win! Rock beats Scissors!'; 
-  } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+  } 
+  else if (playerSelection === 'paper' && computerSelection === 'rock') {
     return 'You win! Paper beats Rock!'; 
-  } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+  } 
+  else if (playerSelection === 'scissors' && computerSelection === 'paper') {
     return 'You win! Scissors beat Paper!'; 
   }
   
-    //tieing scenario
-    else if (playerSelection === computerSelection) {
+  //tieing scenario
+  else if (playerSelection === computerSelection) {
     return `It's a tie!`; 
   } 
 
@@ -49,13 +53,17 @@ function game() {
     //play a round
     console.log(playRound(playerSelection, computerSelection)); 
 
+    //if user error, reset round
+    if (playRound().includes('Incorrect')) {
+      return i -= 1; 
+    }
+
     //update our score
-    if (playRound().includes('lose')) {
-      compScore += 'I'; 
-    } else if (playRound().includes('win')) {
+    if (playRound().includes('win')) {
       playerScore += 'I'; 
-    } else {
-      i -= 1; 
+    } 
+    else if (playRound().includes('lose')) {
+      compScore += 'I'; 
     }
 
     //display score
@@ -70,7 +78,13 @@ function game() {
   }
 
   //pronounce winner of five rounds 
-  
+  if (playerScore.length > compScore.length) {
+    return 'You won the game!'; 
+  }
+  else if (playerScore.length < compScore.length) {
+    return 'You lost the game!'; 
+  } 
+  else {
+    return 'It\'s a tie!'; 
+  }
 }
-
-console.log(game()); 
