@@ -21,7 +21,7 @@ function playRound() {
     return 'You lose! Rock beats scissors!'; 
   } 
 
-  //winning scenarios
+    //winning scenarios
     else if (playerSelection === 'rock' && computerSelection === 'scissors') {
     return 'You win! Rock beats Scissors!'; 
   } else if (playerSelection === 'paper' && computerSelection === 'rock') {
@@ -30,7 +30,7 @@ function playRound() {
     return 'You win! Scissors beat Paper!'; 
   }
   
-  //tieing scenario
+    //tieing scenario
     else if (playerSelection === computerSelection) {
     return `It's a tie!`; 
   } 
