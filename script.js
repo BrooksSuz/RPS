@@ -1,5 +1,5 @@
 //variables
-const playerSelection = 'rock';
+const playerSelection = prompt("Rock, Paper, or Scissors?"); 
 const computerSelection = computerPlay();
 
 function computerPlay() {
@@ -30,6 +30,11 @@ function playRound() {
     return 'You win! Scissors beat Paper!'; 
   }
 
+  //error message on incorrect input
+  else if (playerSelection.toLowerCase() !== 'rock' || 'paper' || 'scissors') {
+    return 'Incorrect input. Type \'Rock\', \'Paper\', or \'Scissors\''; 
+  }
+
   //tieing scenario
   else {
     return `It's a tie!`; 
@@ -37,7 +42,7 @@ function playRound() {
 }
 
 const game = () => {
-  return playRound(playerSelection, computerSelection); 
+  playRound(playerSelection, computerSelection); 
 }
 
 console.log(game());
