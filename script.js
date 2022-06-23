@@ -17,7 +17,7 @@ function playRound() {
     return 'You lose! Rock beats scissors!'; 
   } 
 
-  //winning scenarios
+    //winning scenarios
     else if (playerSelection === 'rock' && computerSelection === 'scissors') {
     return 'You win! Rock beats Scissors!'; 
   } else if (playerSelection === 'paper' && computerSelection === 'rock') {
@@ -25,15 +25,15 @@ function playRound() {
   } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
     return 'You win! Scissors beat Paper!'; 
   }
-
-  //error message on incorrect input
-    else if (playerSelection !== 'rock' || 'paper' || 'scissors') {
-    return 'Incorrect input. Type \'Rock\', \'Paper\', or \'Scissors\'.'; 
+  
+    //tieing scenario
+    else if (playerSelection === computerSelection) {
+    return `It's a tie!`; 
   } 
 
-  //tieing scenario
+    //error message on incorrect input
     else {
-    return `It's a tie!`; 
+    return 'Incorrect input. Type \'Rock\', \'Paper\', or \'Scissors\'.'; 
   } 
 }
 
@@ -44,7 +44,7 @@ function game() {
 
   //set playerSelection for beginning of game
   playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase().replace(/\s/g, '');
-  
+
   for (let i = 0; i < 5; i++) {
     //play a round
     console.log(playRound(playerSelection, computerSelection)); 
@@ -68,4 +68,9 @@ function game() {
     computerSelection = computerPlay(); 
     playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase().replace(/\s/g, ''); 
   }
+
+  //pronounce winner of five rounds 
+  
 }
+
+console.log(game()); 
