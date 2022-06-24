@@ -1,4 +1,4 @@
-//'console.log(game());' for RPS gameplay
+//'console.log(playGame());' for RPS gameplay
 
 //variables
 let computerSelection = computerPlay();
@@ -42,7 +42,7 @@ function playRound() {
 }
 
 //function that plays a five round game of RPS
-function game() {
+function playGame() {
   //variables  
   let compScore = ''; 
   let playerScore = ''; 
@@ -54,30 +54,36 @@ function game() {
     //play a round
     console.log(playRound(playerSelection, computerSelection)); 
 
-    //if user error, reset round
-    if (playRound().includes('Incorrect')) {
-      return i -= 1; 
-    }
-
     //update score
     if (playRound().includes('win')) {
       playerScore += 'I'; 
+
+      //display score
+      console.log(`
+      Player Score: ${playerScore} 
+      Computer Score: ${compScore}
+      `); 
     } else if (playRound().includes('lose')) {
       compScore += 'I'; 
+
+      //display score
+      console.log(`
+      Player Score: ${playerScore} 
+      Computer Score: ${compScore}
+      `); 
     }
-
-    //display score
-    console.log(`
-    Player Score: ${playerScore} 
-    Computer Score: ${compScore}
-    `); 
-
+    
+    //if user error, reset round
+      else if (playRound().includes('Incorrect')) {
+      i -= 1; 
+    }
+    
     //reset variables for new game 
     computerSelection = computerPlay(); 
     playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase().replace(/\s/g, ''); 
   }
 
-  //pronounce winner of five rounds 
+  //pronounce winner of five round game
   if (playerScore.length > compScore.length) {
     return 'You won the game!'; 
   } else if (playerScore.length < compScore.length) {
