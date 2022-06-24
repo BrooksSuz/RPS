@@ -59,7 +59,7 @@ function game() {
       return i -= 1; 
     }
 
-    //update our score
+    //update score
     if (playRound().includes('win')) {
       playerScore += 'I'; 
     } else if (playRound().includes('lose')) {
