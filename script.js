@@ -3,6 +3,25 @@
 //variables
 let computerSelection = computerPlay();
 let playerSelection = '';
+const divResults = document.getElementById('results'); 
+const btnRock = document.getElementById('rock');
+const btnPaper = document.getElementById('paper'); 
+const btnScissors = document.getElementById('scissors'); 
+
+btnRock.addEventListener('click', function selectRock() {
+  playerSelection = 'rock'; 
+  playRound(); 
+}); 
+
+btnPaper.addEventListener('click', function selectPaper() {
+  playerSelection = 'paper'; 
+  playRound(); 
+}); 
+
+btnScissors.addEventListener('click', function selectScissors() {
+  playerSelection = 'scissors'; 
+  playRound(); 
+}); 
 
 //function that determines computer option
 function computerPlay() {
@@ -42,7 +61,7 @@ function playRound() {
 }
 
 //function that plays a five round game of RPS
-function playGame() {
+/* function playGame() {
   //variables  
   let compScore = ''; 
   let playerScore = ''; 
@@ -91,4 +110,4 @@ function playGame() {
   } else {
     return 'It\'s a tie!'; 
   }
-}
+} */
