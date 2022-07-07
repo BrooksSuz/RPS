@@ -6,7 +6,7 @@ let playerSelection = '';
 const divResults = document.getElementById('results'); 
 const btnRock = document.getElementById('rock');
 const btnPaper = document.getElementById('paper'); 
-const btnScissors = document.getElementById('scissors'); 
+const btnScissors = document.getElementById('scissors');  
 
 btnRock.addEventListener('click', function selectRock() {
   playerSelection = 'rock'; 
@@ -33,30 +33,30 @@ function computerPlay() {
 function playRound() { 
   //losing scenarios
   if (playerSelection === 'rock' && computerSelection === 'paper') {
-    return 'You lose! Paper beats Rock!'; 
+    divResults.textContent = 'You lose! Paper beats Rock!'; 
   } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-    return 'You lose! Scissors beat Paper!'; 
+    divResults.textContent = 'You lose! Scissors beat Paper!'; 
   } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-    return 'You lose! Rock beats scissors!'; 
+    divResults.textContent = 'You lose! Rock beats scissors!'; 
   } 
 
     //winning scenarios
     else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    return 'You win! Rock beats Scissors!'; 
+    divResults.textContent = 'You win! Rock beats Scissors!'; 
   } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-    return 'You win! Paper beats Rock!'; 
+    divResults.textContent = 'You win! Paper beats Rock!'; 
   } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-    return 'You win! Scissors beat Paper!'; 
+    divResults.textContent = 'You win! Scissors beat Paper!'; 
   }
   
     //tieing scenario
     else if (playerSelection === computerSelection) {
-    return `It's a tie!`; 
+    divResults.textContent = 'It\'s a tie!'; 
   } 
 
     //error message on incorrect input
     else {
-    return 'Incorrect input. Type \'Rock\', \'Paper\', or \'Scissors\'.'; 
+    divResults.textContent = 'Incorrect input. Type \'Rock\', \'Paper\', or \'Scissors\'.'; 
   } 
 }
 
