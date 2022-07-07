@@ -11,16 +11,19 @@ const btnScissors = document.getElementById('scissors');
 btnRock.addEventListener('click', function selectRock() {
   playerSelection = 'rock'; 
   playRound(); 
+  computerSelection = computerPlay(); 
 }); 
 
 btnPaper.addEventListener('click', function selectPaper() {
   playerSelection = 'paper'; 
   playRound(); 
+  computerSelection = computerPlay();
 }); 
 
 btnScissors.addEventListener('click', function selectScissors() {
   playerSelection = 'scissors'; 
   playRound(); 
+  computerSelection = computerPlay();
 }); 
 
 //function that determines computer option
@@ -33,30 +36,30 @@ function computerPlay() {
 function playRound() { 
   //losing scenarios
   if (playerSelection === 'rock' && computerSelection === 'paper') {
-    divResults.textContent = 'You lose! Paper beats Rock!'; 
+    divResults.textContent = 'Results: You lose! Paper beats Rock!'; 
   } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-    divResults.textContent = 'You lose! Scissors beat Paper!'; 
+    divResults.textContent = 'Results: You lose! Scissors beat Paper!'; 
   } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-    divResults.textContent = 'You lose! Rock beats scissors!'; 
+    divResults.textContent = 'Results: You lose! Rock beats scissors!'; 
   } 
 
     //winning scenarios
     else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    divResults.textContent = 'You win! Rock beats Scissors!'; 
+    divResults.textContent = 'Results: You win! Rock beats Scissors!'; 
   } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-    divResults.textContent = 'You win! Paper beats Rock!'; 
+    divResults.textContent = 'Results: You win! Paper beats Rock!'; 
   } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-    divResults.textContent = 'You win! Scissors beat Paper!'; 
+    divResults.textContent = 'Results: You win! Scissors beat Paper!'; 
   }
   
     //tieing scenario
     else if (playerSelection === computerSelection) {
-    divResults.textContent = 'It\'s a tie!'; 
+    divResults.textContent = 'Results: It\'s a tie!'; 
   } 
 
     //error message on incorrect input
     else {
-    divResults.textContent = 'Incorrect input. Type \'Rock\', \'Paper\', or \'Scissors\'.'; 
+    divResults.textContent = 'Results: Incorrect input. Type \'Rock\', \'Paper\', or \'Scissors\'.'; 
   } 
 }
 
