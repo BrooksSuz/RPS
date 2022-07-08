@@ -7,8 +7,8 @@ const btnRock = document.getElementById('rock');
 const btnPaper = document.getElementById('paper'); 
 const btnScissors = document.getElementById('scissors');  
 const divResults = document.getElementById('results'); 
-const paraPlayerScore = document.getElementById('player-score'); 
-const paraCompScore = document.getElementById('comp-score');
+const divPlayerScore = document.getElementById('player-score'); 
+const divCompScore = document.getElementById('comp-score');
 
 //function that determines computer option
 function computerPlay() {
@@ -21,17 +21,32 @@ btnRock.addEventListener('click', function selectRock() {
   computerSelection = computerPlay(); 
 
   //call playGame if there isn't a game currently playing
-  
+  if (divPlayerScore.textContent === 'Player Score: ' && 
+  divCompScore.textContent === 'Computer Score: ') {
+    playGame(); 
+  }
 }); 
 
 btnPaper.addEventListener('click', function selectPaper() {
   playerSelection = 'paper'; 
   computerSelection = computerPlay();
+
+  //call playGame if there isn't a game currently playing
+  if (divPlayerScore.textContent === 'Player Score: ' && 
+  divCompScore.textContent === 'Computer Score: ') {
+    playGame(); 
+  }
 }); 
 
 btnScissors.addEventListener('click', function selectScissors() {
   playerSelection = 'scissors';  
   computerSelection = computerPlay();
+
+  //call playGame if there isn't a game currently playing
+  if (divPlayerScore.textContent === 'Player Score: ' && 
+  divCompScore.textContent === 'Computer Score: ') {
+    playGame(); 
+  }
 }); 
 
 //function that plays a round of RPS
@@ -67,49 +82,20 @@ function playRound() {
 
 //function that plays a five round game of RPS
  function playGame() {
-  //variables  
-  let compScore = ''; 
-  let playerScore = ''; 
+  //play a round
+  playRound(playerSelection, computerSelection); 
 
-  for (let i = 0; i < 5; i++) {
-    //play a round
-    playRound(playerSelection, computerSelection); 
-
-    //update score
-    if (playRound().includes('win')) {
-      paraPlayerScore.textContent += 'I'; 
-
-      //display score
-      console.log(`
-      Player Score: ${playerScore} 
-      Computer Score: ${compScore}
-      `); 
-    } else if (playRound().includes('lose')) {
-      compScore += 'I'; 
-
-      //display score
-      console.log(`
-      Player Score: ${playerScore} 
-      Computer Score: ${compScore}
-      `); 
-    }
-    
-    //if user error, reset round
-      else if (playRound().includes('Incorrect')) {
-      i -= 1; 
-    }
-    
-    //reset variables for new game 
-    computerSelection = computerPlay(); 
-    playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase().replace(/\s/g, ''); 
+  //update score
+  if (playRound().includes('win')) {
+    divPlayerScore.textContent += 'I'; 
+  } else if (playRound().includes('lose')) {
+    divCompScore.textContent += 'I'; 
   }
 
   //pronounce winner of five round game
-  if (playerScore.length > compScore.length) {
-    return 'You won the game!'; 
-  } else if (playerScore.length < compScore.length) {
-    return 'You lost the game!'; 
-  } else {
-    return 'It\'s a tie!'; 
+  if (divPlayerScore.textContent.includes('IIIII')) {
+    divResults.textContent = 'Results: You won the game!'; 
+  } else if (divCompScore.textContent.includes('IIIII')) {
+    divResults.textContent = 'You lost the game!'; 
   }
 } 
