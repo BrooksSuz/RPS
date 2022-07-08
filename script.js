@@ -1,36 +1,38 @@
 //'console.log(playGame());' for RPS gameplay
 
 //variables
-let computerSelection = computerPlay();
+let computerSelection = '';
 let playerSelection = '';
-const divResults = document.getElementById('results'); 
 const btnRock = document.getElementById('rock');
 const btnPaper = document.getElementById('paper'); 
 const btnScissors = document.getElementById('scissors');  
-
-btnRock.addEventListener('click', function selectRock() {
-  playerSelection = 'rock'; 
-  playRound(); 
-  computerSelection = computerPlay(); 
-}); 
-
-btnPaper.addEventListener('click', function selectPaper() {
-  playerSelection = 'paper'; 
-  playRound(); 
-  computerSelection = computerPlay();
-}); 
-
-btnScissors.addEventListener('click', function selectScissors() {
-  playerSelection = 'scissors'; 
-  playRound(); 
-  computerSelection = computerPlay();
-}); 
+const divResults = document.getElementById('results'); 
+const paraPlayerScore = document.getElementById('player-score'); 
+const paraCompScore = document.getElementById('comp-score');
 
 //function that determines computer option
 function computerPlay() {
   const rockPaperScissors = ['rock', 'paper', 'scissors']; 
   return rockPaperScissors[Math.floor(Math.random() * rockPaperScissors.length)]; 
 }
+
+btnRock.addEventListener('click', function selectRock() {
+  playerSelection = 'rock'; 
+  computerSelection = computerPlay(); 
+
+  //call playGame if there isn't a game currently playing
+  
+}); 
+
+btnPaper.addEventListener('click', function selectPaper() {
+  playerSelection = 'paper'; 
+  computerSelection = computerPlay();
+}); 
+
+btnScissors.addEventListener('click', function selectScissors() {
+  playerSelection = 'scissors';  
+  computerSelection = computerPlay();
+}); 
 
 //function that plays a round of RPS
 function playRound() { 
@@ -59,26 +61,23 @@ function playRound() {
 
     //error message on incorrect input
     else {
-    divResults.textContent = 'Results: Incorrect input. Type \'Rock\', \'Paper\', or \'Scissors\'.'; 
+    divResults.textContent = 'Results: Incorrect input. Click \'Rock\', \'Paper\', or \'Scissors\'.'; 
   } 
 }
 
 //function that plays a five round game of RPS
-/* function playGame() {
+ function playGame() {
   //variables  
   let compScore = ''; 
   let playerScore = ''; 
 
-  //set playerSelection for beginning of game
-  playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase().replace(/\s/g, '');
-
   for (let i = 0; i < 5; i++) {
     //play a round
-    console.log(playRound(playerSelection, computerSelection)); 
+    playRound(playerSelection, computerSelection); 
 
     //update score
     if (playRound().includes('win')) {
-      playerScore += 'I'; 
+      paraPlayerScore.textContent += 'I'; 
 
       //display score
       console.log(`
@@ -113,4 +112,4 @@ function playRound() {
   } else {
     return 'It\'s a tie!'; 
   }
-} */
+} 
