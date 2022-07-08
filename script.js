@@ -12,7 +12,7 @@ const divCompScore = document.getElementById('comp-score');
 //function that determines computer option
 function computerPlay() {
   const rockPaperScissors = ['rock', 'paper', 'scissors']; 
-  return rockPaperScissor[Math.floor(Math.random() * rockPaperScissors.length)]; 
+  return rockPaperScissors[Math.floor(Math.random() * rockPaperScissors.length)]; 
 }
 
 btnRock.addEventListener('click', function selectRock() {
