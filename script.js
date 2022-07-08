@@ -72,11 +72,6 @@ function playRound() {
     else if (playerSelection === computerSelection) {
     divResults.textContent = 'Results: It\'s a tie!'; 
   } 
-
-    //error message on incorrect input
-    else {
-    divResults.textContent = 'Results: Incorrect input. Click \'Rock\', \'Paper\', or \'Scissors\'.'; 
-  } 
 }
 
 //function that plays a five round game of RPS
